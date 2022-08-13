@@ -19,14 +19,12 @@ export default function App() {
 			pokemon.forEach(async (element) => {
 				const data = await axios(element.url);
 				const res = data.data;
-				console.log(res);
+
 				setPokemonList((prev) => [...prev, res]);
 			});
 		};
 
 		pokemonAll(res.results);
-
-		console.log(res);
 	};
 
 	useEffect(() => {
