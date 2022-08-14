@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Image from "next/image";
+import Images from "../components/Images";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 
@@ -17,13 +18,13 @@ export default function Pages() {
 		const data = await axios(`https://pokeapi.co/api/v2/pokemon/${id}`);
 		const res = await data.data;
 		setPokeData(res);
-		console.log(pokeData);
 	};
 
 	useEffect(() => {
 		if (pid) {
 			console.log("loaded");
 			getData(pid);
+			console.log(pokeData);
 		}
 	}, [pid]);
 
@@ -39,6 +40,7 @@ export default function Pages() {
 				height={100}
 				alt='pokemon photo'
 			/>
+			<Images data={pokeData.sprites} />
 		</div>
 	);
 

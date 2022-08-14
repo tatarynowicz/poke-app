@@ -30,6 +30,7 @@ export default function App() {
 	useEffect(() => {
 		getAllPokemons();
 	}, []);
+
 	return (
 		<div className={classes.container}>
 			<h2 className={classes.title}>Pokemon</h2>
