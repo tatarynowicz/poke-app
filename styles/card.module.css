@@ -39,12 +39,6 @@
 	margin: 0.5em;
 }
 
-/* .card:hover {
-	background-color: hsla(156, 5%, 36%, 0.409);
-	padding-right: 2em;
-	color: black;
-} */
-
 .card p {
 	font-size: 1em;
 	font-weight: bold;

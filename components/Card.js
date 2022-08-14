@@ -22,13 +22,31 @@ export default function Card(props) {
 	};
 
 	const detailsView = (
-		<div className={classes.details}>
-			<h2>{data.name}</h2>
-			{data.types.map((el, index) => (
-				<p key={index}>{el.type.name}</p>
-			))}
-		</div>
+		<>
+			<h2>{name(data.name)}</h2>
+
+			<p>Weight: {data.weight}</p>
+			<p>Height: {data.height}</p>
+			<ul>
+				{data.types.length > 1 ? "Types:" : "Type:"}
+
+				{data.types.map((el, index) => (
+					<li key={index}>{el.type.name}</li>
+				))}
+			</ul>
+			<div className={classes.abiliti}>
+				<h3>Abilities</h3>
+
+				<ul>
+					{data.abilities.map((el, index) => (
+						<li key={index}>{name(el.ability.name)}</li>
+					))}
+				</ul>
+			</div>
+		</>
 	);
+
+	console.log(`${classes.card}+${data.types[0].type.name}`);
 
 	return (
 		<Link href={`/${data.name}`}>
@@ -53,18 +71,6 @@ export default function Card(props) {
 						height={100}
 						alt='pokemon photo'
 					/>
-					<p>{data.weight}</p>
-					<p>{data.height}</p>
-					<p>{name(data.types[0].type.name)}</p>
-					<div className={classes.abiliti}>
-						<h3>Abilities</h3>
-
-						<ul>
-							{data.abilities.map((el, index) => (
-								<li key={index}>{name(el.ability.name)}</li>
-							))}
-						</ul>
-					</div>
 				</div>
 			)}
 		</Link>

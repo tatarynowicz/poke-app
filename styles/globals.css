@@ -57,6 +57,9 @@ a {
 .grass {
 	background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
 }
+.grass:hover {
+	background-image: linear-gradient(120deg, #c4e96f 0%, #7dc086 100%);
+}
 .water {
 	background-image: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
 }
