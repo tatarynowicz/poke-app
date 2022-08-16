@@ -28,18 +28,23 @@ export default function App() {
 	};
 
 	useEffect(() => {
-		getAllPokemons();
+		const pokeFun = getAllPokemons();
+		return () => {
+			pokeFun;
+		};
 	}, []);
 
 	return (
 		<div className={classes.container}>
-			<h2 className={classes.title}>Pokemon</h2>
+			<h2>Pokemons</h2>
 			<div className={classes.cards}>
 				{pokemonList.map((el, index) => (
 					<Card data={el} key={index} />
 				))}
 			</div>
-			<button onClick={getAllPokemons}>Next Pokemons</button>
+			<button onClick={getAllPokemons} className={classes.button}>
+				Next Pokemons
+			</button>
 		</div>
 	);
 }

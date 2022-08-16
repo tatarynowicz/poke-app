@@ -1,12 +1,25 @@
 .container {
 	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: center;
+	flex-direction: column;
 	align-items: center;
-	margin: 1em;
-	padding: 1em;
+	height: 100%;
+	width: 100%;
+	margin: 5px;
+	padding: 10px;
+	justify-content: space-between;
+	background-color: antiquewhite;
 }
+.container h2 {
+	text-align: center;
+	font-size: 8em;
+	font-weight: 800;
+}
+
+.button {
+	padding: 10px;
+	margin: 10px;
+}
+
 .title {
 	font-size: 4em;
 	font-weight: bold;
@@ -14,62 +27,81 @@
 	margin: 0;
 	padding: 0;
 }
-
 .cards {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-
-	margin: 1em;
-	padding: 1em;
+	background-color: transparent;
+	width: 90%;
+	height: 90%;
+	border: 1px solid #f1f1f1;
+	perspective: 1000px;
 }
+
 .card {
-	display: flex;
-	flex-direction: column;
-	min-width: 10em;
-	min-height: 15em;
-	max-width: 15em;
-	max-height: 25em;
-	align-items: center;
-	justify-content: center;
-	background-color: bisque;
-	width: 30%;
-	border-radius: 5%;
-	padding: 0.5em;
-	margin: 0.5em;
+	position: relative;
+	width: 250px;
+	height: 400px;
+	text-align: center;
+	transition: 2s ease-in-out;
+	transform-style: preserve-3d;
+	border-radius: 10%;
+	margin: 1em;
 }
-
-.card p {
-	font-size: 1em;
+.card h2 {
+	font-size: 2em;
 	font-weight: bold;
-	color: black;
-	margin: 0.2em;
-}
-.abiliti {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	padding: 1em;
-}
-.abiliti ul {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+	font-family: "Poppins", sans-serif;
+	margin: 0;
 	padding: 0;
 }
 
-.abiliti li {
-	list-style: none;
-	font-weight: 500;
-	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+.card .front,
+.card .back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 10%;
+	-webkit-backface-visibility: hidden; /* Safari */
+	/* backface-visibility: ; */
 }
 
-.abiliti h3 {
-	font-size: 2em;
-	font-weight: bold;
-	color: black;
-	margin: 0;
-	padding: 0.3em;
+.card .back {
+	/* background-color: #f1f1f1; */
+	height: 100%;
+	width: 100%;
+	/* border-radius: 10%; */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	transition: 1s ease-in-out;
+	color: #000;
+	opacity: 0;
+
+	/* transform: rotateY(180deg); */
+	/* transition: transform 0.5s ease-in-out; */
+}
+
+.card .front {
+	/* background-color: #f1f1f1; */
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	transition: 1s ease-in-out;
+	color: #000;
+	opacity: 1;
+	/* transition: transform 0.5s ease-in-out; */
+}
+.card:hover .front {
+	opacity: 0;
+	transition: 1s ease-in-out;
+}
+
+.card:hover .back {
+	opacity: 1;
+	transition: 1s ease-in-out;
 }

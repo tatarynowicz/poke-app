@@ -14,13 +14,6 @@ export default function Card(props) {
 		return name.charAt(0).toUpperCase() + name.slice(1);
 	};
 
-	const handleEnter = (e) => {
-		setHover(false);
-	};
-	const handleLeave = (e) => {
-		setHover(true);
-	};
-
 	const detailsView = (
 		<>
 			<h2>{name(data.name)}</h2>
@@ -28,10 +21,10 @@ export default function Card(props) {
 			<p>Weight: {data.weight}</p>
 			<p>Height: {data.height}</p>
 			<ul>
-				{data.types.length > 1 ? "Types:" : "Type:"}
+				<h3>{data.types.length > 1 ? "Types:" : "Type:"}</h3>
 
 				{data.types.map((el, index) => (
-					<li key={index}>{el.type.name}</li>
+					<li key={index}>{name(el.type.name)}</li>
 				))}
 			</ul>
 			<div className={classes.abiliti}>
@@ -50,18 +43,16 @@ export default function Card(props) {
 
 	return (
 		<Link href={`/${data.name}`}>
-			{!hover ? (
-				<div
-					className={`${classes.card} ${data.types[0].type.name}`}
-					onMouseLeave={handleLeave}
-				>
-					{detailsView}
+			{/* {!hover ? (
+				
+			) : ( */}
+
+			<div className={`${classes.card} ${data.types[0].type.name}`}>
+				<div className={classes.back}>
+					<h2>Subcard</h2>
+					<div>{detailsView}</div>
 				</div>
-			) : (
-				<div
-					className={`${classes.card} ${data.types[0].type.name}`}
-					onMouseEnter={handleEnter}
-				>
+				<div className={classes.front}>
 					<h2>{name(data.name)}</h2>
 
 					<Image
@@ -71,8 +62,11 @@ export default function Card(props) {
 						height={100}
 						alt='pokemon photo'
 					/>
+					<p className={classes.distext}>HI my name is Mcihal</p>
 				</div>
-			)}
+			</div>
+
+			{/* )} */}
 		</Link>
 	);
 }

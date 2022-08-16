@@ -21,11 +21,16 @@ export default function Pages() {
 	};
 
 	useEffect(() => {
+		let data;
 		if (pid) {
 			console.log("loaded");
-			getData(pid);
+			data = getData(pid);
 			console.log(pokeData);
 		}
+		return () => {
+			console.log("unloaded");
+			data;
+		};
 	}, [pid]);
 
 	const view = (

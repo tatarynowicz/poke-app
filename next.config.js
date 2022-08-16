@@ -1,5 +1,5 @@
 module.exports = {
-	reactStrictMode: false,
+	reactStrictMode: true,
 	images: {
 		domains: ["raw.githubusercontent.com"],
 		formats: ["image/webp"],
