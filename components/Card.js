@@ -49,7 +49,6 @@ export default function Card(props) {
 
 			<div className={`${classes.card} ${data.types[0].type.name}`}>
 				<div className={classes.back}>
-					<h2>Subcard</h2>
 					<div>{detailsView}</div>
 				</div>
 				<div className={classes.front}>
@@ -62,7 +61,6 @@ export default function Card(props) {
 						height={100}
 						alt='pokemon photo'
 					/>
-					<p className={classes.distext}>HI my name is Mcihal</p>
 				</div>
 			</div>
 
